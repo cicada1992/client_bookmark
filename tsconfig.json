@@ -16,17 +16,12 @@
     "keyofStringsOnly": true,
     "assumeChangesOnlyAffectDirectDependencies": true,
     "incremental": true,
-    "lib": [
-      "dom",
-      "es2015",
-      "es2015.promise",
-      "es2015.iterable",
-      "esnext.asynciterable"
-    ],
+    "lib": ["dom", "es2015", "es2015.promise", "es2015.iterable", "esnext.asynciterable"],
     "baseUrl": ".",
-    "outDir": "./compiled"
+    "outDir": "./compiled",
+    "paths": {
+      "@src/*": ["./src/*"]
+    }
   },
-  "exclude": [
-    "node_modules"
-  ]
+  "exclude": ["node_modules"]
 }

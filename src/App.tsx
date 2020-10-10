@@ -1,15 +1,28 @@
 import React from 'react';
-import styled from 'styled-components';
-
-const Contaner = styled.div`
-  font-size: 13px;
-  color: #333333;
-`;
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { AuthPage, BookmarkCreatePage, BookmarkListPage } from './pages';
+import PageContainer from './pages/shared/PageContainer';
 
 interface AppProps {}
 
 const App: React.FC<AppProps> = () => {
-  return <Contaner>Hello world</Contaner>;
+  return (
+    <BrowserRouter>
+      <PageContainer>
+        <Switch>
+          <Route path="/auth">
+            <AuthPage />
+          </Route>
+          <Route path="/new">
+            <BookmarkCreatePage />
+          </Route>
+          <Route path="/">
+            <BookmarkListPage />
+          </Route>
+        </Switch>
+      </PageContainer>
+    </BrowserRouter>
+  );
 };
 
 export default App;

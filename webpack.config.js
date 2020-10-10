@@ -52,7 +52,10 @@ const exportConfig = {
   ],
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.jsx'],
-    modules: [SRC_DIR, path.join(__dirname, 'node_modules'), 'node_modules']
+    modules: [SRC_DIR, path.join(__dirname, 'node_modules'), 'node_modules'],
+    alias: {
+      '@src': path.resolve(__dirname, 'src')
+    }
   }
 };
 
