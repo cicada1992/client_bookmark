@@ -1,4 +1,6 @@
+import BookmarksStore from '@src/stores/BookmarksStore';
 import React from 'react';
+import { observer } from 'mobx-react';
 import styled from 'styled-components';
 import PageArticle from '../shared/PageArticle';
 import Post from './Post';
@@ -16,15 +18,19 @@ const PageBody = styled.div`
   }
 `;
 
-const BookmarkListPage: React.FC = () => {
+const BookmarkListPage: React.FC = observer(() => {
+  const bookmarksStore = BookmarksStore.instantiate();
+  const { allBookmarks } = bookmarksStore;
+
   return (
     <PageArticle title="북마크 리스트">
       <PageBody>
-        <Post content="Post 1" />
-        <Post content="Post 2" />
+        {allBookmarks.map((bookmark) => (
+          <Post key={bookmark.id} bookmark={bookmark} />
+        ))}
       </PageBody>
     </PageArticle>
   );
-};
+});
 
 export default BookmarkListPage;

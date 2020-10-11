@@ -1,4 +1,5 @@
 import { boxShadow } from '@src/lib/styleUtils';
+import { Bookmark } from '@src/types';
 import React from 'react';
 import styled from 'styled-components';
 
@@ -13,11 +14,17 @@ const Container = styled.div`
 `;
 
 interface Props {
-  content: string;
+  bookmark: Bookmark;
 }
 
-const Post: React.FC<Props> = ({ content }) => {
-  return <Container>{content}</Container>;
+const Post: React.FC<Props> = ({ bookmark }) => {
+  const { title, link } = bookmark;
+  return (
+    <Container>
+      <div>Title: {title}</div>
+      <div>Link: {link}</div>
+    </Container>
+  );
 };
 
 export default Post;
