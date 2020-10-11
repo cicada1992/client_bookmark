@@ -1,9 +1,9 @@
-import { Article } from '@src/lib/styles';
 import React from 'react';
 import styled from 'styled-components';
+import PageArticle from '../shared/PageArticle';
 import Post from './Post';
 
-const PostWrapper = styled.div`
+const PageBody = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
@@ -18,12 +18,12 @@ const PostWrapper = styled.div`
 
 const BookmarkListPage: React.FC = () => {
   return (
-    <Article>
-      <PostWrapper>
+    <PageArticle title="북마크 리스트">
+      <PageBody>
         <Post content="Post 1" />
         <Post content="Post 2" />
-      </PostWrapper>
-    </Article>
+      </PageBody>
+    </PageArticle>
   );
 };
 
