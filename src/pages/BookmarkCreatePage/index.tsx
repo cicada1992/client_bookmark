@@ -1,5 +1,5 @@
 import TextInput from '@src/components/TextInput';
-import BookmarksStore from '@src/stores/BookmarksStore';
+import RootStore from '@src/stores';
 import { observer } from 'mobx-react';
 import React, { useState } from 'react';
 import styled from 'styled-components';
@@ -14,7 +14,7 @@ const PageBody = styled.div`
 const BookmarkCreatePage: React.FC = observer(() => {
   const [title, setTitle] = useState('');
   const [link, setLink] = useState('');
-  const bookmarksStore = BookmarksStore.instantiate();
+  const bookmarksStore = RootStore.getOrMakeInstance().bookmarks;
   const handleButtonClick = () => {
     bookmarksStore.addBookmark({ id: 'new-id', title, link });
   };

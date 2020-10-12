@@ -1,4 +1,4 @@
-import BookmarksStore from '@src/stores/BookmarksStore';
+import RootStore from '@src/stores';
 import React from 'react';
 import { observer } from 'mobx-react';
 import styled from 'styled-components';
@@ -19,8 +19,7 @@ const PageBody = styled.div`
 `;
 
 const BookmarkListPage: React.FC = observer(() => {
-  const bookmarksStore = BookmarksStore.instantiate();
-  const { allBookmarks } = bookmarksStore;
+  const { allBookmarks } = RootStore.getOrMakeInstance().bookmarks;
 
   return (
     <PageArticle title="북마크 리스트">

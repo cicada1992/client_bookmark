@@ -1,10 +1,14 @@
 import { Bookmark } from '@src/types';
 import { makeObservable, observable, action, computed } from 'mobx';
+import RootStore from '.';
 
 export default class BookmarksStore {
+  public root: RootStore;
   public bookmarks = [] as Bookmark[];
 
-  constructor() {
+  constructor(root: RootStore) {
+    this.root = root;
+
     makeObservable(this, {
       bookmarks: observable,
       allBookmarks: computed,
@@ -18,14 +22,5 @@ export default class BookmarksStore {
 
   public addBookmark(bookmark: Bookmark) {
     this.bookmarks.push(bookmark);
-  }
-
-  private static instance: BookmarksStore;
-
-  public static instantiate(): BookmarksStore {
-    if (!this.instance) {
-      this.instance = new BookmarksStore();
-    }
-    return this.instance;
   }
 }
