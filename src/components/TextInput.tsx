@@ -2,12 +2,12 @@ import { focusedInputStyle } from '@src/lib/styleUtils';
 import React, { SyntheticEvent, useCallback } from 'react';
 import styled, { css } from 'styled-components';
 
-const inputErrorStyle = css`
+const errorStyle = css`
   border: 1px solid red;
   outline: none;
 `;
 
-const InputContainer = styled.div<{ width: string }>`
+const Container = styled.div<{ width: string }>`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -40,7 +40,7 @@ const Input = styled.input<{ hasError: boolean }>`
     ${({ hasError }) => !hasError && focusedInputStyle};
   }
 
-  ${({ hasError }) => hasError && inputErrorStyle};
+  ${({ hasError }) => hasError && errorStyle};
 `;
 
 const ErrorCaption = styled.div`
@@ -74,7 +74,7 @@ const TextInput: React.FC<Props> = ({
     [onChange]
   );
   return (
-    <InputContainer width={width}>
+    <Container width={width}>
       <Label>{label}</Label>
       <Input
         type="text"
@@ -84,7 +84,7 @@ const TextInput: React.FC<Props> = ({
         onChange={handleInputChange}
       />
       {Boolean(error) && <ErrorCaption>{error}</ErrorCaption>}
-    </InputContainer>
+    </Container>
   );
 };
 

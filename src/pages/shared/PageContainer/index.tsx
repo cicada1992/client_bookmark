@@ -7,9 +7,6 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   width: 100%;
-  height: 100%;
-  background: #ddd;
-  color: #333;
 `;
 
 interface Props {

@@ -1,19 +1,19 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Article = styled.article`
-  position: relative;
-  left: 20px;
-  max-width: 800px;
+const Aside = styled.aside`
+  position: fixed;
+  top: 60px;
+  left: 840px;
+  width: 180px;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
+  flex-direction: column;
   padding: 15px 20px;
   border: solid 1px #ccc;
   border-radius: 3px;
   background: #fff;
-  overflow-y: scroll;
 `;
 
 const Container = styled.div`
@@ -34,15 +34,15 @@ interface Props {
   children: React.ReactNode;
 }
 
-const PageArticle: React.FC<Props> = ({ title, children }) => {
+const PageAside: React.FC<Props> = ({ title, children }) => {
   return (
-    <Article>
+    <Aside>
       <Container>
         <Title>{title}</Title>
         {children}
       </Container>
-    </Article>
+    </Aside>
   );
 };
 
-export default PageArticle;
+export default PageAside;

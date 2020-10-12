@@ -4,9 +4,9 @@ import { observer } from 'mobx-react';
 import styled from 'styled-components';
 import PageArticle from '../shared/PageArticle';
 import Post from './Post';
+import PageAside from '../shared/PageAside';
 
 const PageBody = styled.div`
-  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -19,16 +19,28 @@ const PageBody = styled.div`
 `;
 
 const BookmarkListPage: React.FC = observer(() => {
-  const { allBookmarks } = RootStore.getOrMakeInstance().bookmarks;
+  const {
+    bookmarks: bookmarksStore,
+    directories: directoriesStore
+  } = RootStore.getOrMakeInstance();
+  const { allBookmarks } = bookmarksStore;
+  const { allDirectories } = directoriesStore;
 
   return (
-    <PageArticle title="북마크 리스트">
-      <PageBody>
-        {allBookmarks.map((bookmark) => (
-          <Post key={bookmark.id} bookmark={bookmark} />
+    <>
+      <PageArticle title="북마크 리스트">
+        <PageBody>
+          {allBookmarks.map((bookmark) => (
+            <Post key={bookmark.id} bookmark={bookmark} />
+          ))}
+        </PageBody>
+      </PageArticle>
+      <PageAside title="디렉토리">
+        {allDirectories.map((directory) => (
+          <div key={directory.id}>{directory.label}</div>
         ))}
-      </PageBody>
-    </PageArticle>
+      </PageAside>
+    </>
   );
 });
 

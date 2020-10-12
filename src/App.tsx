@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { AuthPage, BookmarkCreatePage, BookmarkListPage } from './pages';
+import DirectoryCreatePage from './pages/DirectoryCreatePage';
 import PageContainer from './pages/shared/PageContainer';
 
 interface AppProps {}
@@ -13,7 +14,10 @@ const App: React.FC<AppProps> = () => {
           <Route path="/auth">
             <AuthPage />
           </Route>
-          <Route path="/new">
+          <Route path="/directory/new">
+            <DirectoryCreatePage />
+          </Route>
+          <Route path="/bookmark/new">
             <BookmarkCreatePage />
           </Route>
           <Route path="/">

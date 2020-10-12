@@ -10,6 +10,7 @@ const Container = styled.header`
   width: 100%;
   height: 50px;
   background: #333;
+  z-index: 10000;
 `;
 
 const Left = styled.div`
@@ -51,7 +52,7 @@ const Gnb: React.FC = () => {
         <StyledLink to="/">Bookmarks</StyledLink>
       </Left>
       <Right>
-        <StyledLink to="/new">새 포스트</StyledLink>
+        <StyledLink to="/bookmark/new">북마크 추가</StyledLink>
         <StyledLink to="/auth">Auth</StyledLink>
       </Right>
     </Container>
