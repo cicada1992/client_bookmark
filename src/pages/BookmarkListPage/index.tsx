@@ -2,9 +2,15 @@ import RootStore from '@src/stores';
 import React from 'react';
 import { observer } from 'mobx-react';
 import styled from 'styled-components';
-import PageArticle from '../shared/PageArticle';
+import PageSection from '../shared/PageSection';
 import Post from './Post';
-import PageAside from '../shared/PageAside';
+import { Container } from '@material-ui/core';
+
+const StyledContainer = styled(Container)`
+  display: flex;
+  max-width: 1000px;
+  margin: 0;
+`;
 
 const PageBody = styled.div`
   display: flex;
@@ -12,10 +18,15 @@ const PageBody = styled.div`
   align-items: center;
   flex-direction: column;
   width: 100%;
+  min-width: 600px;
 
   & > :not(:first-child) {
     margin-top: 20px;
   }
+`;
+
+const Spacer = styled.div`
+  width: 15px;
 `;
 
 const BookmarkListPage: React.FC = observer(() => {
@@ -27,20 +38,21 @@ const BookmarkListPage: React.FC = observer(() => {
   const { allDirectories } = directoriesStore;
 
   return (
-    <>
-      <PageArticle title="북마크 리스트">
+    <StyledContainer>
+      <PageSection title="북마크 리스트">
         <PageBody>
           {allBookmarks.map((bookmark) => (
             <Post key={bookmark.id} bookmark={bookmark} />
           ))}
         </PageBody>
-      </PageArticle>
-      <PageAside title="디렉토리">
+      </PageSection>
+      <Spacer />
+      <PageSection title="디렉토리">
         {allDirectories.map((directory) => (
           <div key={directory.id}>{directory.label}</div>
         ))}
-      </PageAside>
-    </>
+      </PageSection>
+    </StyledContainer>
   );
 });
 

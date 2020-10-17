@@ -1,4 +1,5 @@
 import React from 'react';
+import CssBaseline from '@material-ui/core/CssBaseline';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { AuthPage, BookmarkCreatePage, BookmarkListPage } from './pages';
 import DirectoryCreatePage from './pages/DirectoryCreatePage';
@@ -9,6 +10,7 @@ interface AppProps {}
 const App: React.FC<AppProps> = () => {
   return (
     <BrowserRouter>
+      <CssBaseline />
       <PageContainer>
         <Switch>
           <Route path="/auth">

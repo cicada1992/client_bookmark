@@ -1,17 +1,6 @@
-import { boxShadow } from '@src/lib/styleUtils';
+import { Card, CardContent } from '@material-ui/core';
 import { Bookmark } from '@src/types';
 import React from 'react';
-import styled from 'styled-components';
-
-const Container = styled.div`
-  display: flex;
-  width: 100%;
-  height: 200px;
-  padding: 15px 20px;
-  border-radius: 6px;
-  background: #eee;
-  ${boxShadow(0.25)};
-`;
 
 interface Props {
   bookmark: Bookmark;
@@ -20,10 +9,12 @@ interface Props {
 const Post: React.FC<Props> = ({ bookmark }) => {
   const { title, link } = bookmark;
   return (
-    <Container>
-      <div>Title: {title}</div>
-      <div>Link: {link}</div>
-    </Container>
+    <Card style={{ width: '100%', background: '#eee' }}>
+      <CardContent>
+        <div>Title: {title}</div>
+        <div>Link: {link}</div>
+      </CardContent>
+    </Card>
   );
 };
 

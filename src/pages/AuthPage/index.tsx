@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import PageArticle from '../shared/PageArticle';
+import PageSection from '../shared/PageSection';
 
 const PageBody = styled.div`
   & > div:not(:last-child) {
@@ -10,11 +10,11 @@ const PageBody = styled.div`
 
 const AuthPage: React.FC = () => {
   return (
-    <PageArticle title="Auth Page">
+    <PageSection title="Auth Page">
       <PageBody>
         <div>Auth</div>
       </PageBody>
-    </PageArticle>
+    </PageSection>
   );
 };
 
