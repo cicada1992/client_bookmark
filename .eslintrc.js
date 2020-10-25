@@ -39,7 +39,8 @@ module.exports = {
     'react/prop-types': 0,
     'react/no-unescaped-entities': 0,
     'no-underscore-dangle': ['error', { allow: ['__typename'] }],
-    '@typescript-eslint/no-unused-vars': ['error', { args: 'none' }],
+    'no-unused-vars': 1,
+    '@typescript-eslint/no-unused-vars': [1, { args: 'none' }],
     'react/jsx-filename-extension': [1, { extensions: ['.tsx', '.jsx'] }],
     'react-hooks/rules-of-hooks': 'error', // Checks rules of Hooks
     'react-hooks/exhaustive-deps': 'warn', // Checks effect dependencies,
